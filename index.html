@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel-like Web Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📊 Excel-like Web Application</h1>
+            <div class="toolbar">
+                <button id="addRow" class="btn btn-primary">Add Row</button>
+                <button id="addColumn" class="btn btn-primary">Add Column</button>
+                <button id="deleteRow" class="btn btn-danger">Delete Row</button>
+                <button id="calculate" class="btn btn-success">Calculate</button>
+                <button id="createChart" class="btn btn-info">Create Chart</button>
+                <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" style="display: none;">
+                <button id="importData" class="btn btn-secondary">Import Excel</button>
+                <button id="exportData" class="btn btn-secondary">Export Excel</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="spreadsheet-container">
+                <div class="formula-bar">
+                    <label for="formulaInput">Formula:</label>
+                    <input type="text" id="formulaInput" placeholder="Enter formula (e.g., =A1+B1)">
+                    <button id="applyFormula" class="btn btn-small">Apply</button>
+                </div>
+                
+                <div class="table-container">
+                    <table id="spreadsheet" class="spreadsheet">
+                        <thead id="tableHead">
+                            <tr>
+                                <th></th>
+                                <th>A</th>
+                                <th>B</th>
+                                <th>C</th>
+                                <th>D</th>
+                                <th>E</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Rows will be generated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="analytics-panel">
+                <div class="stats-section">
+                    <h3>📈 Analytics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <label>Sum:</label>
+                            <span id="sumValue">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <label>Average:</label>
+                            <span id="avgValue">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <label>Count:</label>
+                            <span id="countValue">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <label>Max:</label>
+                            <span id="maxValue">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <label>Min:</label>
+                            <span id="minValue">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-section">
+                    <h3>📊 Visualization</h3>
+                    <div class="chart-controls">
+                        <select id="chartType">
+                            <option value="bar">Bar Chart</option>
+                            <option value="line">Line Chart</option>
+                            <option value="pie">Pie Chart</option>
+                        </select>
+                        <select id="dataColumn">
+                            <option value="A">Column A</option>
+                            <option value="B">Column B</option>
+                            <option value="C">Column C</option>
+                            <option value="D">Column D</option>
+                            <option value="E">Column E</option>
+                        </select>
+                    </div>
+                    <canvas id="dataChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="filter-section">
+                <h4>🔍 Data Filters</h4>
+                <div class="filter-controls">
+                    <select id="filterColumn">
+                        <option value="">Select Column</option>
+                        <option value="A">Column A</option>
+                        <option value="B">Column B</option>
+                        <option value="C">Column C</option>
+                        <option value="D">Column D</option>
+                        <option value="E">Column E</option>
+                    </select>
+                    <input type="text" id="filterValue" placeholder="Filter value">
+                    <button id="applyFilter" class="btn btn-small">Apply Filter</button>
+                    <button id="clearFilter" class="btn btn-small">Clear</button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
