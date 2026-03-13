@@ -1,7 +1,4 @@
 - 👋 Hi, I’m @sravanmothukuri
-- 👀 I’m interested in Analytics 
-- 🌱 I’m currently learning Analyzing and Visualization with Power BI 
-- 💞️ I’m looking to collaborate on Data Analytics Internship
 - 📫 How to reach me ... Linkedin - Sravan Kumar M
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
